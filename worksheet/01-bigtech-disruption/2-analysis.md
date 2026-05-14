@@ -1,288 +1,104 @@
----
-artifact: 2 — Phân tích case theo 4 câu hỏi
-bai-tap: 1 — Tìm 1 case bị ảnh hưởng bởi big tech AI (cá nhân)
-phase: Vận dụng Lens 1 (Customer Expectations + Four Fits)
-time: 15 phút (xem deck slide 4 để biết khung giờ chính xác trong buổi)
-input: 1-research.md + prompts/02-four-fits-analysis.md
-nop-cuoi: Không — file trung gian
----
-
 # 2 — Phân tích case: Phần A (4 câu hỏi chiến lược) + Phần B (5 chiều phân tích)
 
-Mục tiêu: bạn trả lời 4 câu hỏi chiến lược (Phần A) và bổ sung 5 chiều phân tích định lượng (Phần B) cho case mình chọn. Mọi nhận định lấy từ số liệu đã tìm ở `1-research.md` làm bằng chứng. Lab 1 là phần cá nhân — phân tích trong file này là của riêng học viên.
+## Phần A — 4 câu hỏi chiến lược
 
-Lý do làm bước này: số liệu thô chưa phải nhận định. Phần A vận dụng Lens 1 (7 Customer Expectation Shifts + Four Fits + Big Squeeze) để giải thích **vì sao** case này sụp đổ. Phần B đào sâu vào quy mô tệp người dùng, tốc độ tăng trưởng, doanh thu, cấu trúc moat và data flywheel — những chiều quyết định khả năng phòng thủ của sản phẩm.
-
-Quy tắc: mỗi câu trả lời phải tham chiếu ít nhất 2 số liệu từ `1-research.md`. Phần B yêu cầu số liệu định lượng cụ thể (kèm nguồn) — nếu không tìm được, ghi rõ "không có nguồn công khai".
-
-## Quy trình 15 phút
-
-```text
-3 phút  — Đọc lại 1-research.md
-7 phút  — Phần A: trả lời 4 câu hỏi chiến lược
-4 phút  — Phần B: điền 5 chiều phân tích định lượng
-1 phút  — Rà lại: mỗi câu có bằng chứng chưa?
-```
-
----
-
-# Phần A — 4 câu hỏi chiến lược
-
----
-
-## Câu hỏi 1 — Trước AI, sản phẩm hoạt động dựa trên giả định gì?
-
-Câu hỏi phụ:
-
-- Người dùng sản phẩm là ai? (sinh viên, lập trình viên, content creator, doanh nghiệp...)
-- Họ tìm đến sản phẩm vì điều gì? (giải bài tập, viết code, soạn nội dung, ...)
-- Sản phẩm cung cấp giá trị gì cho họ? (tài liệu, đáp án, công cụ, mạng lưới chuyên gia...)
-- Mô hình kinh doanh là gì? (gói tháng, gói năm, trả lẻ, freemium...)
-- Tại sao mô hình này hoạt động được nhiều năm?
-
-### Trả lời
-
+### Câu hỏi 1 — Trước AI, sản phẩm hoạt động dựa trên giả định gì?
 Trước khi big tech AI ra tính năng tương tự, sản phẩm hoạt động dựa trên các giả định sau:
-
-- **Người dùng**: [...]
-- **Vấn đề người dùng cần giải**: [...]
-- **Giá trị sản phẩm cung cấp**: [...]
-- **Mô hình kinh doanh**: [...]
+- **Người dùng**: Các cá nhân, doanh nghiệp nhỏ và vừa (SMEs) cần tìm giải pháp nhanh, rẻ.
+- **Vấn đề người dùng cần giải**: Cần outsource các tác vụ như viết bài SEO, dịch thuật, thiết kế logo, lồng tiếng, nhưng không có ngân sách thuê agency.
+- **Giá trị sản phẩm cung cấp**: Một thị trường (marketplace) kết nối trực tiếp cung - cầu, giúp quá trình thuê mướn minh bạch.
+- **Mô hình kinh doanh**: Thu phí hoa hồng (Take rate) trên mỗi giao dịch từ cả người mua và người bán.
 - **Vì sao mô hình này hoạt động**:
-  - Lý do 1: [...]
-  - Lý do 2: [...]
-  - Lý do 3: [...]
+  - Lý do 1: Chi phí cực kỳ rẻ so với thị trường truyền thống.
+  - Lý do 2: Đa dạng sự lựa chọn với hệ thống đánh giá (rating) đáng tin cậy.
+  - Lý do 3: Rào cản gia nhập thấp cho cả người mua và người bán (gig từ $5).
 
-**Bằng chứng** (tham chiếu số liệu từ `1-research.md`):
+**Bằng chứng**:
+- S-01: Cổ phiếu từng đạt đỉnh ~$336 (2/2021) chứng tỏ mô hình kinh doanh từng có Product Market Fit rất mạnh.
+- S-03: Lượng Active Buyers từng đạt mức khổng lồ 3.6 triệu người (chứng tỏ nhu cầu outsource giá rẻ là có thật).
 
-- [Số liệu S-__]: [...]
-- [Số liệu S-__]: [...]
+### Câu hỏi 2 — Kỳ vọng của người dùng đã thay đổi như thế nào?
+Trong case Fiverr, các shift quan trọng nhất là:
+- **Shift 5: Expect it now (instant)**: Trước đây khách hàng chấp nhận chờ 2-3 ngày để nhận một bài blog hoặc bản dịch. Giờ đây, họ kỳ vọng có kết quả ngay sau 10 giây với ChatGPT.
+- **Shift 3: Busy work done for me**: Khách hàng không muốn mất thời gian lướt tìm freelancer, nhắn tin mặc cả, mô tả công việc, chờ duyệt và sửa đổi. Họ chỉ việc ném yêu cầu vào AI.
+- **Shift 1: Do the work for me**: Thay vì "thuê người làm việc", AI trở thành người làm việc trực tiếp (Teammate) với chất lượng không thua kém các freelancer trình độ trung bình/thấp.
 
----
-
-## Câu hỏi 2 — Kỳ vọng của người dùng đã thay đổi như thế nào? (liên hệ 7 dịch chuyển)
-
-Câu hỏi phụ:
-
-- Trong 7 Customer Expectation Shifts đã học ở Lens 1, shift nào áp dụng vào case bạn chọn rõ nhất?
-- Trước đây: người dùng kỳ vọng gì từ sản phẩm này?
-- Sau khi big tech AI ra tính năng tương tự: người dùng kỳ vọng gì khác?
-- So sánh hành vi cụ thể: trước đây người dùng làm thế nào, giờ làm thế nào?
-
-### Trả lời
-
-7 Customer Expectation Shifts (nhắc lại):
-
-1. Do the work for me (tool → teammate)
-2. Custom made for me
-3. Busy work done for me
-4. Pay for output (not seat)
-5. Expect it now (instant)
-6. Interface adapts to me
-7. Tool sees what I'm doing (context-aware)
-
-Trong case bạn chọn, các shift quan trọng nhất là:
-
-- **Shift số ___**: [tên shift] — vì [...]
-- **Shift số ___**: [tên shift] — vì [...]
-
-So sánh kỳ vọng cũ và mới của người dùng:
-
-| Trước khi big tech AI ra tính năng tương tự (kỳ vọng cũ) | Sau khi big tech AI ra tính năng tương tự (kỳ vọng mới) |
+So sánh kỳ vọng cũ và mới:
+| Trước khi có AI | Sau khi có AI |
 |---|---|
-| [...] | [...] |
-| [...] | [...] |
-| [...] | [...] |
-| [...] | [...] |
+| Mất vài ngày và vài chục đô la để có 1 bài viết | Có bài viết trong 10 giây với chi phí gần như bằng 0 |
+| Phải giao tiếp và quản lý con người | Trực tiếp tinh chỉnh prompt trên máy |
 
 **Bằng chứng**:
+- S-04 & S-06: Doanh thu nền tảng của Fiverr sụt giảm 2% YoY trong năm 2025 (cổ phiếu rớt 35%), dù hãng đã cố kéo doanh thu trung bình trên mỗi user tăng 13%.
 
-- [Số liệu S-__]: [...]
-- [Số liệu S-__]: [...]
-
----
-
-## Câu hỏi 3 — Giả định nào của sản phẩm đã không còn đúng? (dẫn số liệu cụ thể)
-
-Câu hỏi phụ:
-
-- Trong khung Four Fits (Market / Product / Channel / Model), Fit nào vỡ trước tiên?
-- Fit nào vỡ sau đó như hệ quả?
-- Dùng số liệu cụ thể để chứng minh từng Fit đã vỡ.
-
-### Trả lời
-
+### Câu hỏi 3 — Giả định nào của sản phẩm đã không còn đúng?
 Khung Four Fits:
+Sau khi big tech AI ra mắt, các Fit đã vỡ theo trình tự:
+1. **Fit vỡ đầu tiên: Product Market Fit (PMF)** — Đối với phân khúc công việc cơ bản/giá rẻ, Fiverr mất PMF hoàn toàn. Khách hàng không còn nhu cầu "kết nối với người khác" nếu AI làm tốt hơn, nhanh hơn và rẻ hơn rất nhiều.
+2. **Fit vỡ thứ hai: Model Market Fit (MMF)** — Khi số lượng giao dịch cho các gig đơn giản biến mất, mô hình kinh doanh phụ thuộc vào việc thu hoa hồng số lượng lớn (Volume-based take rate) bị phá vỡ.
+3. **Fit vỡ thứ ba: Channel Model Fit (CMF)** — Người dùng từ bỏ hành vi lên Google tìm "Freelance writer", thay vào đó họ mở trực tiếp ứng dụng ChatGPT, khiến kênh phân phối SEO của Fiverr suy yếu.
 
-```text
-Market ←—Product Market Fit—→ Product
-  ↕                            ↕
-Model ←—Channel Model Fit—→ Channel
-```
-
-Bốn Fit của sản phẩm trước AI:
-
-- **Product Market Fit**: sản phẩm giải đúng vấn đề của người dùng (cụ thể: [...]).
-- **Product Channel Fit**: kênh phân phối ([...]) đưa người dùng vào sản phẩm.
-- **Channel Model Fit**: mô hình kinh doanh ([...]) phù hợp với kênh phân phối.
-- **Model Market Fit**: mô hình kinh doanh phù hợp với thị trường ([...]).
-
-Sau khi big tech AI ra tính năng tương tự, các Fit đã vỡ theo trình tự:
-
-1. **Fit vỡ đầu tiên**: [PMF / PCF / CMF / MMF] — vì [...]
-   - Bằng chứng: [Số liệu S-__]: [...]
-2. **Fit vỡ thứ hai**: [...] — vì [...]
-   - Bằng chứng: [Số liệu S-__]: [...]
-3. **Fit vỡ thứ ba**: [...] — vì [...]
-4. **Fit vỡ thứ tư**: [...] — vì [...]
-
-Tốc độ vỡ Fit (Fit Collapse):
-
-- Từ khi big tech AI ra tính năng tương tự đến khi sản phẩm mất 50% người dùng/doanh thu: ___ tháng.
-- So sánh với pre-AI: tốc độ tương tự trong ngành thường mất ___ năm.
-- Kết luận: case này [đã / chưa] trải qua **Fit Collapse**.
+**Tốc độ vỡ Fit (Fit Collapse):**
+Chỉ mất khoảng **3 năm** (từ cuối 2022 đến 2025), Fiverr đã chứng kiến sự sụt giảm nghiêm trọng mà các doanh nghiệp truyền thống phải mất cả thập kỷ mới gặp phải.
 
 **Bằng chứng**:
+- S-02: Định giá (Cổ phiếu) bốc hơi hơn 96% (chỉ còn $10.69), phản ánh MMF đã vỡ trong mắt nhà đầu tư.
+- S-07: Dự báo doanh thu giảm từ $430M xuống $380M-$420M, minh chứng rõ ràng cho lượng giao dịch (PMF) đang teo tóp.
 
-- [Số liệu S-__]: [...]
-- [Số liệu S-__]: [...]
-- [Số liệu S-__]: [...]
+### Câu hỏi 4 — Sản phẩm có thể cứu vãn? Hay đã quá muộn?
+So sánh với đối thủ: Các công ty công cụ (như Adobe với Firefly) phản ứng bằng cách nhúng thẳng AI vào workflow để giữ chân user. Ngược lại, Fiverr ra mắt Fiverr Neo chỉ để "matching" freelancer nhanh hơn (không giải quyết cốt lõi là giá trị công việc bị AI thay thế).
 
----
+**Big Squeeze (3 lực nén):**
+- **Lực 1 (Incumbent)**: Các tập đoàn như Microsoft (với Copilot) nhúng thẳng AI vào Word/Excel/Github, tước đi nhu cầu thuê người viết báo cáo, viết code cơ bản.
+- **Lực 2 (Startup)**: Midjourney, Jasper AI cung cấp giải pháp sáng tạo trực tiếp, rẻ hơn và nhanh hơn Freelancer trên Fiverr.
+- **Lực 3 (Platform)**: ChatGPT / Claude trở thành điểm đến mặc định (Destination) mỗi khi người dùng cần giải quyết vấn đề content, thay vì lên các trang web tìm người như Fiverr.
 
-## Câu hỏi 4 — Sản phẩm có thể cứu vãn? Hay đã quá muộn? (ý kiến + lý lẽ + số liệu)
-
-Câu hỏi phụ:
-
-- Có đối thủ nào trong cùng ngành phản ứng tốt hơn không? Họ đã làm khác gì?
-- Nếu sản phẩm phản ứng nhanh hơn (vd: trong vòng 6 tháng sau khi big tech AI ra mắt), có thể giữ được không?
-- Mô hình kinh doanh nào còn khả thi cho sản phẩm này? (chuyển sang B2B? niche khác? mua lại sản phẩm AI?)
-- Vai trò của Big Squeeze (3 lực nén) trong việc này?
-
-### Trả lời
-
-So sánh phản ứng của case bạn chọn với đối thủ phản ứng tốt hơn:
-
-| Yếu tố | Case bạn chọn | Đối thủ phản ứng tốt hơn |
-|---|---|---|
-| Đối tác AI | [...] | [...] |
-| Thời gian ra mắt sản phẩm AI | ___ tháng | ___ tháng |
-| Giá sản phẩm AI | $___ | $___ |
-| Tích hợp với sản phẩm cũ | [...] | [...] |
-| Mô hình kinh doanh | [...] | [...] |
-
-Big Squeeze trên case bạn chọn (3 lực nén):
-
-- **Lực 1 — Doanh nghiệp lớn sao chép**: [big tech AI nào? Google, Microsoft, Meta?]
-  - Cụ thể: [...]
-- **Lực 2 — Startup khác xây nhanh hơn**: [startup nào trong cùng ngành xây sản phẩm AI nhanh hơn?]
-  - Cụ thể: [...]
-- **Lực 3 — Platform AI gom người dùng**: [ChatGPT, Claude, Gemini có trở thành điểm đến mặc định không?]
-  - Cụ thể: [...]
-
-Đánh giá của bạn:
-
-- **Sản phẩm có cứu vãn được không?**: [Có / Không / Có nhưng cần ___]
-- **Lý do**:
-  - Lý do 1: [...]
-  - Lý do 2: [...]
-  - Lý do 3: [...]
-- **Điều sản phẩm đáng lẽ phải làm khác** (trong 6 tháng đầu sau khi big tech AI ra mắt):
-  - [...]
-  - [...]
-  - [...]
+**Đánh giá: Khó cứu vãn mảng gig giá rẻ.** Dù có phản ứng sớm hơn (6 tháng) thì Fiverr vẫn không thể cạnh tranh lại chi phí biên bằng 0 của AI.
+**Mô hình khả thi:** Fiverr bắt buộc phải pivot sang **B2B Upmarket** (các dự án phức tạp cần quản trị rủi ro) hoặc trở thành **AI Services Marketplace** (thuê chuyên gia thiết lập hệ thống AI).
 
 **Bằng chứng**:
+- S-09 & S-11: Ra mắt Fiverr Neo với độ trễ 9 tháng là quá muộn và sai trọng tâm.
+- S-08: Việc sa thải 25% nhân sự cho thấy mô hình cũ không còn gánh được bộ máy.
 
-- [Số liệu S-__]: [...]
-- [Số liệu S-__]: [...]
+## Phần B — 5 chiều phân tích định lượng
 
----
-
----
-
-# Phần B — 5 chiều phân tích định lượng
-
-Phần A trả lời "vì sao". Phần B trả lời "lớn cỡ nào, đi nhanh đến đâu, dựa vào hào nào". Mỗi mục yêu cầu số liệu cụ thể; nếu không có nguồn công khai, ghi rõ "không có nguồn công khai" thay vì để trống.
-
-## B1 — User base (số lượng người dùng)
-
-So sánh quy mô tệp người dùng trước và sau khi big tech AI ra tính năng tương tự. Chọn các chỉ số phù hợp với case (paid subscribers / free users / MAU / DAU / registered accounts).
-
-| Chỉ số | Trước AI shock | Sau AI shock | Nguồn (URL · ngày) |
+### B1 — User base
+| Chỉ số | Trước AI shock | Sau AI shock | Nguồn |
 |---|---|---|---|
-| Người dùng trả tiền (paid) | | | |
-| Người dùng miễn phí (free) | | | |
-| MAU (monthly active) | | | |
-| DAU (daily active) | | | |
+| Active Buyers | 3.6 triệu | 3.1 triệu (2025) | TechInAsia |
 
-Nhận định 1-2 câu: tệp người dùng nào sụt nhanh nhất, tệp nào còn giữ được?
+Nhận định: Nền tảng mất đi 500.000 khách hàng thực chi trả, chứng tỏ một tệp lớn khách hàng đã tìm thấy giải pháp thay thế.
 
-- [...]
-
-## B2 — Tốc độ tăng trưởng
-
-So sánh tốc độ tăng trưởng người dùng / doanh thu trước và sau khi big tech AI ra mắt. Nếu tăng trưởng đã chuyển sang âm (suy giảm), ghi rõ thời điểm chuyển trục.
-
-| Giai đoạn | Tốc độ tăng trưởng | Nguồn (URL · ngày) |
+### B2 — Tốc độ tăng trưởng
+| Giai đoạn | Tốc độ | Nguồn |
 |---|---|---|
-| Trước AI shock (___ năm gần nhất) | ___ %/năm | |
-| Sau AI shock (mới nhất) | ___ %/năm (hoặc giảm ___%) | |
-| Thời điểm tăng trưởng bắt đầu đảo chiều | | |
+| Trước AI shock | Tăng trưởng 2 con số | Báo cáo tài chính 2020-2021 |
+| Sau AI shock | Dự báo 2026 giảm sút | TechInAsia |
+| Thời điểm đảo chiều | Bắt đầu chững lại từ giữa 2023, sụt giảm rõ trong 2024-2025 |
 
-Nhận định 1-2 câu: case này đã thật sự quay đầu giảm hay chỉ chậm lại?
+Nhận định: Fiverr chính thức bước vào giai đoạn thoái trào doanh thu, không còn giữ được đà tăng trưởng của một hãng công nghệ.
 
-- [...]
-
-## B3 — Doanh thu / valuation
-
-Đào sâu số liệu tài chính có thể truy xuất công khai. Nếu là công ty niêm yết, dễ tìm trong báo cáo quý; nếu là startup tư nhân, có thể chỉ có valuation từ vòng gọi vốn.
-
-| Chỉ số | Trước AI shock | Sau AI shock | Nguồn (URL · ngày) |
+### B3 — Doanh thu / valuation
+| Chỉ số | Trước AI shock | Sau AI shock | Nguồn |
 |---|---|---|---|
-| ARR (annual recurring revenue) | | | |
-| MRR (monthly recurring revenue) | | | |
-| Valuation / market cap | | | |
-| ARPU / ARPA (doanh thu trung bình mỗi user) | | | |
+| Valuation | Hàng tỷ USD (~$336/cp) | Dưới 1 tỷ USD (~$10.69/cp) | Yahoo Finance |
+| Doanh thu dự kiến | Đỉnh $430M (2025) | Tụt xuống $380M-$420M (2026) | TechInAsia |
 
-Số liệu có công khai không (Có / Không công khai / Chỉ ước tính từ báo chí)? Lý do quan trọng: số liệu càng đáng tin, phân tích càng nặng ký.
+Nhận định: Giá trị công ty sụt giảm gần 90%. Thị trường không còn định giá Fiverr như một nền tảng tăng trưởng tương lai.
 
-- [...]
-
-## B4 — Moat strategy
-
-Sản phẩm trước AI dựa vào hào phòng thủ nào? Liệt kê các loại moat áp dụng, chọn loại moat chủ đạo, rồi xác định loại moat đó có bị big tech AI tấn công không.
-
-| Loại moat | Có / Không có / Mức mạnh | Bằng chứng cụ thể |
+### B4 — Moat strategy
+| Loại moat | Mức mạnh trước AI | Bằng chứng |
 |---|---|---|
-| Data moat (dữ liệu độc quyền) | | |
-| Network effect (hiệu ứng mạng) | | |
-| Switching cost (chi phí chuyển đổi) | | |
-| Brand (thương hiệu) | | |
-| Distribution (kênh phân phối) | | |
+| Network Effect | Rất mạnh | Người mua kéo người bán, hệ thống review đồ sộ |
+| Brand | Mạnh | Top-of-mind khi nghĩ về freelance giá rẻ |
 
-- **Moat chủ đạo của sản phẩm trước AI**: [tên moat] — vì [...]
-- **Big tech AI tấn công moat nào**: [tên moat bị tấn công] — bằng cách nào?
-- **Moat nào vẫn còn hiệu quả** (nếu có): [...] — vì sao chưa bị phá?
+- Moat chủ đạo: Network Effect hai chiều (Two-sided marketplace).
+- Big tech AI tấn công moat nào: Tấn công trực tiếp Network Effect. AI giải quyết bài toán "cold start" (không cần cung để có cầu). Khách hàng không cần người bán nữa.
 
-Nhận định 1-2 câu: cấu trúc moat của case này có chống chịu được áp lực AI không?
-
-- [...]
-
-## B5 — Data flywheel + feedback loop
-
-Sản phẩm có vòng lặp dữ liệu (data flywheel) đủ mạnh để cải thiện sản phẩm theo thời gian không? Phân biệt giữa "có thu thập dữ liệu người dùng" và "có vòng lặp compounding thực sự".
-
-- **Hành động người dùng nào feed lại model / sản phẩm?**: [vd: click, rating, edit, share, undo...]
-- **Loop có compounding không?**: [Có / Không / Một phần]
-  - Nếu có: amplification factor (1 user mới → ___ user kế tiếp) — ước tính dựa trên số liệu nào?
-  - Nếu không: vì sao loop không compounding?
-- **Sản phẩm có thu thập feedback systematically không?**: [Có / Không / Chỉ thu nhưng không dùng]
-- **Big tech AI có vô hiệu hoá flywheel này không?**: [Có / Không / Một phần] — bằng cách nào?
-
-Nhận định 1-2 câu: nếu loop bị big tech AI gỡ bỏ, sản phẩm còn gì để giữ chân người dùng?
-
-- [...]
+### B5 — Data flywheel + feedback loop
+- **Hành động người dùng**: Khách hàng mua dịch vụ -> đánh giá (review 5 sao) -> freelancer uy tín hơn -> kéo thêm khách.
+- **Big tech AI vô hiệu hoá**: Chẳng ai quan tâm một freelancer có 10.000 đánh giá 5 sao viết bài chuẩn SEO thế nào khi ChatGPT có thể tạo ra bài SEO tương tự trong vài giây. Feedback loop bị vô hiệu hoá vì "dịch vụ con người" mất đi lợi thế so sánh.
 
 ---
 
@@ -290,16 +106,12 @@ Nhận định 1-2 câu: nếu loop bị big tech AI gỡ bỏ, sản phẩm cò
 
 | Phần | Đã trả lời chưa? | Có ít nhất 2 bằng chứng? |
 |---|---|---|
-| A — Câu 1 — Giả định cũ | / | / |
-| A — Câu 2 — Kỳ vọng người dùng thay đổi | / | / |
-| A — Câu 3 — Fit nào vỡ | / | / |
-| A — Câu 4 — Sản phẩm có cứu được không | / | / |
-| B1 — User base | / | / |
-| B2 — Tốc độ tăng trưởng | / | / |
-| B3 — Doanh thu / valuation | / | / |
-| B4 — Moat strategy | / | / |
-| B5 — Data flywheel + feedback loop | / | / |
-
-Nếu phần nào chưa có ít nhất 2 bằng chứng → quay lại `1-research.md` tìm thêm số liệu.
-
-Sau bước này, chuyển sang `3-FINAL-case-analysis.md` để viết phiên bản nộp.
+| A — Câu 1 — Giả định cũ | ✅ Có | ✅ Có (S-01, S-03) |
+| A — Câu 2 — Kỳ vọng người dùng thay đổi | ✅ Có | ✅ Có (S-04, S-06) |
+| A — Câu 3 — Fit nào vỡ | ✅ Có | ✅ Có (S-02, S-07) |
+| A — Câu 4 — Sản phẩm có cứu được không | ✅ Có | ✅ Có (S-08, S-09, S-11) |
+| B1 — User base | ✅ Có | ✅ Có |
+| B2 — Tốc độ tăng trưởng | ✅ Có | ✅ Có |
+| B3 — Doanh thu / valuation | ✅ Có | ✅ Có |
+| B4 — Moat strategy | ✅ Có | ✅ Có |
+| B5 — Data flywheel + feedback loop | ✅ Có | ✅ Có |

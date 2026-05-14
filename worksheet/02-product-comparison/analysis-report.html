@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 2 — So sánh Sản phẩm AI (Nhóm)</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* === VIEWPORT FITTING: MANDATORY BASE STYLES === */
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            background: #ffffff;
+            color: #000000;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: var(--bg-primary);
+        }
+
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 100%;
+            overflow: hidden;
+            padding: var(--slide-padding);
+        }
+
+        :root {
+            --title-size: clamp(2rem, 8vw, 6rem);
+            --h2-size: clamp(1.5rem, 4vw, 3rem);
+            --h3-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            --body-size: clamp(0.9rem, 1.8vw, 1.2rem);
+            --small-size: clamp(0.7rem, 1.2vw, 1rem);
+            --slide-padding: clamp(2rem, 6vw, 8rem);
+            --content-gap: clamp(1rem, 3vw, 3rem);
+            --element-gap: clamp(0.5rem, 1.5vw, 1.5rem);
+
+            /* Light Theme */
+            --bg-primary: #ffffff;
+            --accent-color: #FF5722; /* Vibrant Orange */
+            --text-primary: #000000;
+            --text-on-accent: #000000;
+        }
+
+        /* Slide specific styles */
+        h1, h2 {
+            font-family: 'Archivo Black', sans-serif;
+            margin: 0;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .accent-card {
+            background: var(--accent-color);
+            color: var(--text-on-accent);
+            padding: clamp(1rem, 3vw, 3rem);
+            border-radius: 4px;
+            display: inline-block;
+            transform: rotate(-1deg);
+            box-shadow: 10px 10px 0 rgba(0,0,0,0.3);
+        }
+
+        .slide-num {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            opacity: 0.5;
+        }
+
+        .nav-hint {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 0.8rem;
+            opacity: 0.4;
+            letter-spacing: 2px;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.2s; }
+        .stagger-2 { transition-delay: 0.4s; }
+        .stagger-3 { transition-delay: 0.6s; }
+
+        /* Component Styles */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--content-gap);
+            align-items: center;
+        }
+
+        .image-box {
+            background: #f5f5f5;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: auto;
+            max-height: 55vh;
+            object-fit: contain;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255,87,34,0.2);
+            color: var(--accent-color);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            font-size: var(--body-size);
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--body-size);
+        }
+
+        th, td {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            color: var(--accent-color);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .grid { grid-template-columns: 1fr; }
+            .slide-num { top: 20px; left: 20px; }
+            :root { --slide-padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Title -->
+    <section class="slide" id="s1">
+        <div class="slide-num">01</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">A20 LAB 2 — NHÓM</div>
+                <h1 style="margin-bottom: 20px;">So sánh<br><span style="color:var(--accent-color)">Sản phẩm AI</span></h1>
+                <div class="accent-card">
+                    <h2 style="font-size: clamp(1rem, 3vw, 2rem);">Gemini vs ChatGPT</h2>
+                    <p style="margin: 10px 0 0 0; font-weight: 500;">Tìm kiếm & Tổng hợp Tri thức</p>
+                </div>
+                <p style="margin-top: 40px; opacity: 0.6; font-size: 1rem;">
+                    Trần Khánh Bằng (2A202600458) & Phan Thị Mai Phương (2A202600281)
+                </p>
+            </div>
+        </div>
+        <div class="nav-hint">SCROLL DOWN TO START</div>
+    </section>
+
+    <!-- Slide 2: Entry Comparison -->
+    <section class="slide" id="s2">
+        <div class="slide-num">02</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S1 — PRODUCT MOMENT</div>
+                <h2 style="margin-bottom: 30px;">Entry Point Comparison</h2>
+                <div class="grid" style="grid-template-columns: 1fr 1fr;">
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 1rem; color: var(--accent-color);">GEMINI</h3>
+                        <div class="image-box" style="margin-bottom: 10px;">
+                            <img src="./screenshots/gemini/Gemini_1_entry.png" alt="Gemini Entry">
+                        </div>
+                        <p style="font-size: 0.8rem; opacity: 0.7;">Tích hợp sâu rộng hệ sinh thái Google.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 1rem; color: var(--accent-color);">CHATGPT</h3>
+                        <div class="image-box" style="margin-bottom: 10px;">
+                            <img src="./screenshots/chatgpt/chatgpt-1-entry.png" alt="ChatGPT Entry">
+                        </div>
+                        <p style="font-size: 0.8rem; opacity: 0.7;">Giao diện chat truyền thống tối giản.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 3: Input Comparison -->
+    <section class="slide" id="s3">
+        <div class="slide-num">03</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S2 — WORKFLOW EVIDENCE</div>
+                <h2 style="margin-bottom: 30px;">Input / Prompting Comparison</h2>
+                <div class="grid" style="grid-template-columns: 1fr 1fr;">
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 1rem; color: var(--accent-color);">GEMINI</h3>
+                        <div class="image-box" style="margin-bottom: 10px;">
+                            <img src="./screenshots/gemini/Gemini_2_input.png" alt="Gemini Input">
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 1rem; color: var(--accent-color);">CHATGPT</h3>
+                        <div class="image-box" style="margin-bottom: 10px;">
+                            <img src="./screenshots/chatgpt/chatgpt-2-input.png" alt="ChatGPT Input">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 4: S2 - Workflow Comparison -->
+    <section class="slide" id="s4">
+        <div class="slide-num">04</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S2 — WORKFLOW EVIDENCE</div>
+                <h2 style="margin-bottom: 30px;">Input & Output Comparison</h2>
+                <div class="grid" style="grid-template-columns: 1fr 1fr;">
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 1rem; color: var(--accent-color);">GEMINI</h3>
+                        <div class="image-box" style="margin-bottom: 10px;">
+                            <img src="./screenshots/gemini/Gemini_3_output.png" alt="Gemini Output">
+                        </div>
+                        <p style="font-size: 0.8rem; opacity: 0.7;">Cấu trúc bullet point rõ ràng, có nút Verify.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 1rem; color: var(--accent-color);">CHATGPT</h3>
+                        <div class="image-box" style="margin-bottom: 10px;">
+                            <img src="./screenshots/chatgpt/chatgpt-3-output.png" alt="ChatGPT Output">
+                        </div>
+                        <p style="font-size: 0.8rem; opacity: 0.7;">Hội thoại mạch lạc, dẫn link trực tiếp.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 5: S2 - Friction Areas -->
+    <section class="slide" id="s5">
+        <div class="slide-num">05</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S2 — WORKFLOW EVIDENCE</div>
+                <h2 style="margin-bottom: 40px;">Friction Areas</h2>
+                <div class="grid">
+                    <div class="accent-card" style="transform: none; margin-bottom: 20px;">
+                        <ul style="color: var(--text-on-accent);">
+                            <li style="--accent-color: #000000;"><strong>Gemini</strong>: Tốc độ trễ khi "Double check" thông tin thực tế.</li>
+                            <li style="--accent-color: #000000;"><strong>ChatGPT</strong>: Đôi khi quá dài dòng, cần prompt tinh chỉnh (Socratic style).</li>
+                            <li style="--accent-color: #000000;"><strong>Systemic</strong>: Giới hạn độ sâu dữ liệu thời gian thực (1-2 ngày lag).</li>
+                        </ul>
+                    </div>
+                    <p style="opacity: 0.8;">Cả hai đều đang cố gắng giảm thiểu ma sát thông qua việc tích hợp Agentic Workflows (tự động hóa thay vì chỉ trả lời).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 6: S3 - Signals & Trust -->
+    <section class="slide" id="s6">
+        <div class="slide-num">06</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S3 — OUTPUT & TRUST</div>
+                <h2 style="margin-bottom: 30px;">Trust Signals & Sourcing</h2>
+                <div class="grid" style="grid-template-columns: 1fr 1fr;">
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 1rem; color: var(--accent-color);">GEMINI</h3>
+                        <div class="image-box" style="margin-bottom: 10px;">
+                            <img src="./screenshots/gemini/Gemini_5_sourcing.png" alt="Gemini Sourcing">
+                        </div>
+                        <p style="font-size: 0.8rem; opacity: 0.7;">Citations dẫn nguồn ở cuối, nút Google It.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 1rem; color: var(--accent-color);">CHATGPT</h3>
+                        <div class="image-box" style="margin-bottom: 10px;">
+                            <img src="./screenshots/chatgpt/chatgpt-4-source.png" alt="ChatGPT Sourcing">
+                        </div>
+                        <p style="font-size: 0.8rem; opacity: 0.7;">Dẫn link trực tiếp trong ngữ cảnh hội thoại.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 7: S4 - Business Signals -->
+    <section class="slide" id="s7">
+        <div class="slide-num">07</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S4 — BUSINESS SIGNALS</div>
+                <h2 style="margin-bottom: 30px;">Cost & Pricing Comparison</h2>
+                <div class="grid" style="grid-template-columns: 1fr 1fr;">
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 1rem; color: var(--accent-color);">GEMINI ($20/tháng)</h3>
+                        <div class="image-box" style="margin-bottom: 10px;">
+                            <img src="./screenshots/gemini/Gemini_4_pricing.png" alt="Gemini Pricing">
+                        </div>
+                        <p style="font-size: 0.8rem; opacity: 0.7;">Bundle kèm 2TB Google Drive + Workspace Apps.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <h3 style="font-size: 1rem; color: var(--accent-color);">CHATGPT ($20/tháng)</h3>
+                        <div class="image-box" style="margin-bottom: 10px;">
+                            <img src="./screenshots/chatgpt/chatgpt-5-pricing.png" alt="ChatGPT Pricing">
+                        </div>
+                        <p style="font-size: 0.8rem; opacity: 0.7;">Sức mạnh cốt lõi + Custom GPTs / Plugin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 8: S5.2 User Base & Growth -->
+    <section class="slide" id="s8">
+        <div class="slide-num">08</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S5.2 — USER BASE & GROWTH</div>
+                <h2 style="margin-bottom: 30px;">Quy mô người dùng</h2>
+                <div class="grid">
+                    <div>
+                        <h3 style="color: var(--accent-color);">ChatGPT</h3>
+                        <ul>
+                            <li><strong>~200M WAU</strong> (Weekly Active Users)</li>
+                            <li>Ước tính >10M Paid Users</li>
+                            <li><em>Nguồn: Các báo cáo công khai của OpenAI.</em> Tốc độ tăng trưởng cực kỳ mạnh mẽ.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--accent-color);">Gemini</h3>
+                        <ul>
+                            <li>Tích hợp trong Google One với <strong>>100M subscribers</strong></li>
+                            <li>Số lượng users trả phí riêng cho tier "AI Premium" không được công bố.</li>
+                            <li><em>Nguồn: Alphabet Earnings Call.</em></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 9: S5.3 Revenue & Pricing Power -->
+    <section class="slide" id="s9">
+        <div class="slide-num">09</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S5.3 — REVENUE & PRICING POWER</div>
+                <h2 style="margin-bottom: 30px;">Doanh thu & Chiến lược giá</h2>
+                <div class="grid">
+                    <div>
+                        <h3 style="color: var(--accent-color);">ChatGPT</h3>
+                        <ul>
+                            <li><strong>$20/tháng</strong>. Pricing power rất mạnh.</li>
+                            <li>Người dùng sẵn sàng trả tiền chỉ để dùng model thông minh nhất.</li>
+                            <li>ARR ước tính >$3.4 tỷ.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--accent-color);">Gemini</h3>
+                        <ul>
+                            <li><strong>$20/tháng</strong> (Bundle thêm 2TB Google Drive).</li>
+                            <li>Chiến lược "Bundle pricing" để lôi kéo người dùng từ hệ sinh thái có sẵn.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 10: S5.4 Moat Analysis -->
+    <section class="slide" id="s10">
+        <div class="slide-num">10</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S5.4 — MOAT ANALYSIS</div>
+                <h2 style="margin-bottom: 30px;">Lợi thế cạnh tranh (Moat)</h2>
+                <table style="font-size: 0.9rem;">
+                    <thead>
+                        <tr>
+                            <th>Loại Moat</th>
+                            <th>ChatGPT</th>
+                            <th>Gemini</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Brand</strong></td>
+                            <td>Rất mạnh (Trở thành từ khóa cho AI)</td>
+                            <td>Trung bình (Vẫn núp bóng Google)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Network/Switching</strong></td>
+                            <td>Mạnh (Hệ sinh thái Custom GPTs)</td>
+                            <td>Khá (Tích hợp Workspace)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Distribution</strong></td>
+                            <td>Tự thân lan truyền (Viral word-of-mouth)</td>
+                            <td><strong>Tuyệt đối</strong> (Mặc định trên thiết bị Android)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data</strong></td>
+                            <td>Hội thoại lịch sử khổng lồ</td>
+                            <td><strong>Tuyệt đối</strong> (Google Search Index)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 11: S5.5 Data Flywheel -->
+    <section class="slide" id="s11">
+        <div class="slide-num">11</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S5.5 — DATA FLYWHEEL</div>
+                <h2 style="margin-bottom: 30px;">Vòng lặp dữ liệu</h2>
+                <div class="grid">
+                    <div class="accent-card" style="transform: none;">
+                        <h3 style="margin-top: 0;">ChatGPT Flywheel</h3>
+                        <p style="font-size: 0.9rem;">User Prompts → RLHF Fine-tuning → Model thông minh hơn → Thu hút thêm User.</p>
+                        <p style="font-size: 0.8rem; opacity: 0.8;">(Loop compounding rõ rệt và trực tiếp nhất)</p>
+                    </div>
+                    <div class="accent-card" style="transform: none; background: #e0e0e0;">
+                        <h3 style="margin-top: 0; color: #000000;">Gemini Flywheel</h3>
+                        <p style="font-size: 0.9rem; color: #000000;">Thói quen duyệt web → Cải thiện cá nhân hóa → Trữ lượng dữ liệu real-time lớn nhất.</p>
+                        <p style="font-size: 0.8rem; color: #333333;">(Phụ thuộc vào hệ sinh thái có sẵn)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 12: S5.1 Verdict -->
+    <section class="slide" id="s12">
+        <div class="slide-num">12</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S5.1 — VERDICT</div>
+                <div class="grid">
+                    <div>
+                        <h2 style="color: var(--accent-color);">ChatGPT</h2>
+                        <h3 style="background: #e0e0e0; color: #000000; display: inline-block; padding: 5px 15px;">STRONG</h3>
+                        <p style="margin-top: 20px;">Vẫn là tiêu chuẩn vàng cho sự linh hoạt và khả năng hiểu ý định người dùng (Intent understanding).</p>
+                    </div>
+                    <div>
+                        <h2 style="color: var(--accent-color);">Gemini</h2>
+                        <h3 style="background: #e0e0e0; color: #000000; display: inline-block; padding: 5px 15px;">PROMISING</h3>
+                        <p style="margin-top: 20px;">Lợi thế tuyệt đối về tích hợp dữ liệu Google Search, nhưng UX cần được làm mượt mà hơn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 13: S5.7 Spark -> Loop -> System -->
+    <section class="slide" id="s13">
+        <div class="slide-num">13</div>
+        <div class="slide-content">
+            <div class="reveal text-center" style="text-align: center;">
+                <div class="badge">S5.7 — EVOLUTION</div>
+                <h2>Spark → Loop → <span style="color: var(--accent-color);">System</span></h2>
+                <div class="accent-card" style="margin-top: 40px; transform: none; width: 80%;">
+                    <p style="color: var(--text-on-accent); font-weight: 700; font-size: 1.5rem;">Dự báo 12 tháng: AI Agents thực thụ</p>
+                    <p style="color: var(--text-on-accent); opacity: 0.8;">Cả hai sẽ chuyển từ "Hỏi-Đáp" sang "Thực hiện nhiệm vụ" (Task Execution) trực tiếp trên thiết bị người dùng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Slide 14: Conclusion -->
+    <section class="slide" id="s14">
+        <div class="slide-num">14</div>
+        <div class="slide-content">
+            <div class="reveal">
+                <div class="badge">S5.8 — FINAL THOUGHTS</div>
+                <h2>Kết luận & Bài học</h2>
+                <div class="grid" style="margin-top: 40px;">
+                    <div>
+                        <h3 style="color: var(--accent-color);">Liên hệ Lab 1</h3>
+                        <p>Giống như Stack Overflow bị disruption bởi Copilot, Search truyền thống đang bị thay thế bởi "Answer Engines" như Gemini/ChatGPT.</p>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--accent-color);">Bài học cốt lõi</h3>
+                        <p>Workflow Integration (tích hợp vào luồng công việc) quan trọng hơn chất lượng Model đơn thuần.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
